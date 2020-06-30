@@ -1,1 +1,5 @@
-[{"id":1,"name":"happy","songs":[{"name":"hello"}]},{"id":3,"name":"sad","songs":[]},{"id":4,"name":"yay","songs":[]}]
+[
+  { "id": 1, "name": "happy", "genre": "rock", "songs": [{ "name": "hello" }] },
+  { "id": 3, "name": "sad", "genre": "rock", "songs": [] },
+  { "id": 4, "name": "yay", "genre": "pop", "songs": [] }
+]

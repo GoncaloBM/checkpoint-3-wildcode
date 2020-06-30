@@ -133,13 +133,23 @@ app.put("/playlist/:playlistName", (req, res) => {
 
 app.get("/search", (req, res) => {
   const title = req.query.title;
+  const genre = req.query.genre;
   let playlistsToDisplay = [];
 
-  for (let i = 0; i < playlists.length; i++) {
-    if (playlists[i].name === title) {
-      playlistsToDisplay.push(playlists[i]);
+  if (title) {
+    for (let i = 0; i < playlists.length; i++) {
+      if (playlists[i].name === title) {
+        playlistsToDisplay.push(playlists[i]);
+      }
+    }
+  } else if (genre) {
+    for (let i = 0; i < playlists.length; i++) {
+      if (playlists[i].genre === genre) {
+        playlistsToDisplay.push(playlists[i]);
+      }
     }
   }
+
   res.send(playlistsToDisplay);
 });
 
