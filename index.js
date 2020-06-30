@@ -35,6 +35,8 @@ app.get("/playlist/:id", (req, res) => {
   for (let j = 0; j < playlists.length; j++) {
     if (playlists[j].id === Number(req.params.id)) {
       res.send(playlists[j]);
+    } else {
+      res.send("Playlist not found, sorry :(");
     }
   }
 });
@@ -52,6 +54,8 @@ app.post("/playlist/:playlistId/songs/:newSong", (req, res) => {
       res.send(file2);
 
       res.send(lastSongId);
+    } else {
+      res.send("Playlist not found. Try a different one :)");
     }
   }
 });
@@ -63,6 +67,7 @@ app.get("/playlist/:playlistId/songs", (req, res) => {
       res.send(playlistSongs);
     }
   }
+  res.send("Hmmm, you should try a different playlist");
 });
 
 app.delete("/playlist/:playlistName", (req, res) => {
@@ -92,6 +97,7 @@ app.delete("/playlist/:playlistId/songs/:songName", (req, res) => {
       res.send(file2);
     }
   }
+  res.send("There isn't any playlist with that id.");
 });
 
 app.put("/playlist/:playlistId/songs/:songName", (req, res) => {
@@ -109,6 +115,7 @@ app.put("/playlist/:playlistId/songs/:songName", (req, res) => {
       res.send(file2);
     }
   }
+  res.send("There isn't any playlist with that id.");
 });
 
 app.put("/playlist/:playlistName", (req, res) => {
@@ -122,6 +129,18 @@ app.put("/playlist/:playlistName", (req, res) => {
   const jsonModified = fs.readFileSync("./playlist.json");
   const file2 = JSON.parse(jsonModified);
   res.send(file2);
+});
+
+app.get("/search", (req, res) => {
+  const title = req.query.title;
+  let playlistsToDisplay = [];
+
+  for (let i = 0; i < playlists.length; i++) {
+    if (playlists[i].name === title) {
+      playlistsToDisplay.push(playlists[i]);
+    }
+  }
+  res.send(playlistsToDisplay);
 });
 
 app.listen(port, () =>
