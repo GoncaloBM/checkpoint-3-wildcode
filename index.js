@@ -134,6 +134,7 @@ app.put("/playlist/:playlistName", (req, res) => {
 app.get("/search", (req, res) => {
   const title = req.query.title;
   const genre = req.query.genre;
+  const artist = req.query.artist;
   let playlistsToDisplay = [];
 
   if (title) {
@@ -146,6 +147,14 @@ app.get("/search", (req, res) => {
     for (let i = 0; i < playlists.length; i++) {
       if (playlists[i].genre === genre) {
         playlistsToDisplay.push(playlists[i]);
+      }
+    }
+  } else if (artist) {
+    for (let i = 0; i < playlists.length; i++) {
+      for (let j = 0; j < playlists[i]["songs"].length; j++) {
+        if (playlists[i]["songs"][j].artist === artist) {
+          playlistsToDisplay.push(playlists[i]["songs"][j]);
+        }
       }
     }
   }

@@ -1,5 +1,18 @@
 [
-  { "id": 1, "name": "happy", "genre": "rock", "songs": [{ "name": "hello" }] },
-  { "id": 3, "name": "sad", "genre": "rock", "songs": [] },
+  {
+    "id": 1,
+    "name": "happy",
+    "genre": "rock",
+    "songs": [{ "name": "hello", "artist": "Bob" }]
+  },
+  {
+    "id": 3,
+    "name": "sad",
+    "genre": "rock",
+    "songs": [
+      { "name": "hello", "artist": "Bob" },
+      { "name": "goodbye", "artist": "John" }
+    ]
+  },
   { "id": 4, "name": "yay", "genre": "pop", "songs": [] }
 ]
