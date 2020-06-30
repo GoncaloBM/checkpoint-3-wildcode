@@ -1,0 +1,19 @@
+{
+  "name": "checkpoint-3",
+  "version": "1.0.0",
+  "description": "Checkpoint 3 for Wild Code School about Backend Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express.js"
+  ],
+  "author": "Gonçalo Mira",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
